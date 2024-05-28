@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import SearchByNamePage from "./components/pages/searchs/SearchByNamePage";
+import RecapSeriesPage from "./components/pages/profile/RecapSeriesPage";
+import ProfileHome from "./components/pages/profile/ProfileHome";
+import AnimeHistory from "./components/pages/profile/AnimeHistory";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/:lang/search/:search" element={<SearchByNamePage />} />
+        <Route
+          path="/:lang/profile/:userId/recap-series"
+          element={<RecapSeriesPage />}
+        />
+        <Route path="/:lang/profile/:userId" element={<ProfileHome />} />
+        <Route
+          path="/:lang/profile/:userId/anime/history"
+          element={<AnimeHistory />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
