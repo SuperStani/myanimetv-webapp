@@ -1,5 +1,5 @@
 import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
-import { NavBarItem } from "../templates/ProfilePageTemplate";
+import { NavBarItem } from "../templates/Profile/ProfilePageTemplate";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -20,8 +20,8 @@ const ProfileNavBar = ({ menu, activeItem }: Props) => {
               spacing={0}
               paddingY={2}
             >
-              <Icon boxSize={7} as={item.icon}></Icon>
-              <Text fontSize={"12px"} align={"center"}>
+              <Icon boxSize={{ base: 5, lg: 7 }} as={item.icon}></Icon>
+              <Text fontSize={{ base: "10px", lg: "12px" }} align={"center"}>
                 {item.title}
               </Text>
             </VStack>

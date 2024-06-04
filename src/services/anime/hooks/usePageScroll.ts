@@ -2,20 +2,18 @@ import { useCallback, useEffect } from "react";
 
 const usePageScroll = (conditionScroll: boolean, func: CallableFunction, deps: any) => {
     const handleScroll = useCallback(() => {
-
-        if (
-            window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
-            conditionScroll
-        ) {
-            console.log(deps);
+        const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50;
+        if (isBottom && conditionScroll) {
             func();
         }
-    }, [...deps]);
+    }, [conditionScroll, func, ...deps]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [...deps]);
-}
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [handleScroll]);
+};
 
 export default usePageScroll;

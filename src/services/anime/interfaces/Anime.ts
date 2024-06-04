@@ -3,4 +3,6 @@ export interface Anime {
     name: string;
     season: number;
     poster: string;
+    average?: number;
+    viewCount?: number;
 }

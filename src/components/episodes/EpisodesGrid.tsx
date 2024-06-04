@@ -7,6 +7,7 @@ import { useState } from "react";
 import usePageScroll from "../../services/anime/hooks/usePageScroll";
 import EpisodeCardSkeleton from "./EpisodesSkeleton";
 import EpisodesCardContainer from "./EpisodesCardContainer";
+import DefaultConfig from "../../config/DefaultConfig";
 
 interface Props {
   searchFilter: SearchFilter;
@@ -16,12 +17,15 @@ interface Props {
 const EpisodesGrid = ({ searchFilter, autoRefreshOnScroll = false }: Props) => {
   const [page, setPage] = useState(1);
   const { data, isLoading, isEmptyData } = useAnime<Episode>(
-    page,
-    searchFilter
+    searchFilter,
+    page
   );
+
   if (autoRefreshOnScroll) {
     usePageScroll(
-      !isLoading && !isEmptyData && searchFilter?.maxPages,
+      !isLoading &&
+        !isEmptyData &&
+        (searchFilter.maxPages ? searchFilter.maxPages > page : true),
       () => {
         console.log(isLoading, isEmptyData);
         setPage(page + 1);
@@ -31,16 +35,7 @@ const EpisodesGrid = ({ searchFilter, autoRefreshOnScroll = false }: Props) => {
   }
 
   return (
-    <SimpleGrid
-      spacing={3}
-      columns={1}
-      templateRows={{
-        base: "repeat(" + data.length + ",70px)",
-        sm: "repeat(" + data.length + ",90px)",
-        md: "repeat(" + data.length + ",200px)",
-        lg: "repeat(" + data.length + ",250px)",
-      }}
-    >
+    <SimpleGrid spacing={3} columns={1} mb={10}>
       {data.map((e) => (
         <EpisodesCardContainer key={e.anime.id}>
           <EpisodesCard episode={e} />
@@ -48,9 +43,16 @@ const EpisodesGrid = ({ searchFilter, autoRefreshOnScroll = false }: Props) => {
       ))}
 
       {isLoading &&
-        Array.from({ length: 9 }, (_, index) => (
-          <EpisodeCardSkeleton key={index} />
-        ))}
+        Array.from(
+          {
+            length: DefaultConfig.searchItemsLimitPerPage,
+          },
+          (_, index) => (
+            <EpisodesCardContainer key={index}>
+              <EpisodeCardSkeleton />
+            </EpisodesCardContainer>
+          )
+        )}
     </SimpleGrid>
   );
 };

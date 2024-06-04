@@ -1,14 +1,35 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 import { Anime } from "../../services/anime/interfaces/Anime";
 import DefaultConfig from "../../config/DefaultConfig";
+import CardShadow from "../others/CardShadow";
+import { useInitData, useWebApp } from "@vkruglikov/react-telegram-web-app";
+import openAnime from "../../services/anime/utilities/OpenAnime";
+import { useState } from "react";
+import { EyeFill, StarFill } from "react-bootstrap-icons";
+import AnimePlayEffect from "./AnimePlayEffect";
+import AnimeCardBadgeTopRight from "./AnimeCardBadgeTopRight";
 
 interface Props {
   anime: Anime;
 }
 
 const AnimeCard = ({ anime }: Props) => {
+  const WebApp = useWebApp();
+  const [initDataUnsafe, initData] = useInitData();
+
+  const [clicked, setClicked] = useState(false);
+
+  if (clicked) {
+    openAnime(
+      anime.id,
+      () => WebApp.close(),
+      initDataUnsafe?.user?.id,
+      initData
+    );
+  }
+
   return (
-    <>
+    <Box onClick={() => setClicked(true)}>
       <Image
         src={DefaultConfig.cloudPath + anime.poster}
         width="100%"
@@ -16,33 +37,40 @@ const AnimeCard = ({ anime }: Props) => {
         objectFit="cover"
         objectPosition="center"
       />
-      <Box
-        position="absolute"
-        width="100%"
-        height={{ base: "80%", md: "50%", lg: "50%" }}
-        bottom={0}
-        opacity={"0.9"}
-        background={
-          "-webkit-gradient(linear, left bottom, left top, color-stop(0%, black), color-stop(20%, black), color-stop(70%, rgba(0, 0, 0, 0.049)), color-stop(100%, rgba(0, 0, 0, 0.010)))"
-        }
-      />
+      <CardShadow />
       <Box
         position="absolute"
         bottom="0"
         left="0"
-        padding={{ base: 2, md: 2, lg: 2 }}
+        padding={{ base: 1, md: 2, lg: 2 }}
       >
         <Text
           fontFamily={"Raleway"}
           fontWeight={"bold"}
           color="white"
-          fontSize={{ base: "10px", md: "15px", lg: "17px" }}
+          fontSize={{ base: "12px", md: "15px", lg: "17px" }}
+          lineHeight={1.1}
           align={"left"}
         >
           {anime.name} {anime.season > 0 ? "S" + anime.season : ""}
         </Text>
       </Box>
-    </>
+      {anime?.average && (
+        <AnimeCardBadgeTopRight
+          text={anime.average}
+          icon={{ source: StarFill, color: "yellow.400" }}
+        />
+      )}
+
+      {anime?.viewCount && (
+        <AnimeCardBadgeTopRight
+          text={anime.viewCount}
+          icon={{ source: EyeFill, color: "white.400" }}
+        />
+      )}
+
+      {clicked && <AnimePlayEffect />}
+    </Box>
   );
 };
 

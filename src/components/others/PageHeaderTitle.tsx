@@ -1,22 +1,46 @@
-import { Box, Stack, Text } from "@chakra-ui/react";
+import { Box, HStack, Icon, Spacer, Stack, Text } from "@chakra-ui/react";
+import { MdArrowForwardIos } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-interface Props {
+export interface HeaderTitleProps {
   text: string;
+  icon?: any | null;
+  redirectTo?: string | null;
+  stickyHeader?: boolean;
 }
 
-const PageHeaderTitle = ({ text }: Props) => {
+const PageHeaderTitle = ({
+  text,
+  icon = null,
+  redirectTo = null,
+  stickyHeader = true,
+}: HeaderTitleProps) => {
+  console.log(icon);
   return (
     <Stack
-      position="sticky"
+      position={stickyHeader ? "sticky" : "relative"}
       top="0"
       zIndex="1"
       spacing={2}
       bg={"gray.800"}
       paddingTop={2}
     >
-      <Text fontFamily={"Mochiy Pop One"} align={"left"}>
-        {text}
-      </Text>
+      <HStack>
+        {icon && <Icon boxSize={5} as={icon}></Icon>}
+        <Text
+          casing={{ base: "uppercase" }}
+          fontFamily={"Mochiy Pop One"}
+          align={"left"}
+        >
+          {text}
+        </Text>
+        <Spacer />
+        {redirectTo && (
+          <Link to={redirectTo}>
+            <Icon boxSize={4} as={MdArrowForwardIos} />
+          </Link>
+        )}
+      </HStack>
       <Box
         width="100%"
         height={["3px", "5px", "7px"]}

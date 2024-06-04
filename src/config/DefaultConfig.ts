@@ -1,6 +1,6 @@
 const DefaultConfig = {
     cloudPath: 'https://cloud.myanimetv.tk/',
-    searchItemsLimitPerPage: 9,
+    searchItemsLimitPerPage: 20,
     defaultLang: 'en' as keyof any
 }
 

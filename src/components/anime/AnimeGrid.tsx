@@ -7,19 +7,24 @@ import { SearchFilter } from "../../services/anime/interfaces/SearchFilter";
 import { Anime } from "../../services/anime/interfaces/Anime";
 import { useState } from "react";
 import usePageScroll from "../../services/anime/hooks/usePageScroll";
+import DefaultConfig from "../../config/DefaultConfig";
 
 interface Props {
   searchFilter: SearchFilter;
+  pagiantionOnScroll?: boolean;
 }
 
-const AnimeGrid = ({ searchFilter }: Props) => {
+const AnimeGrid = ({ searchFilter, pagiantionOnScroll = true }: Props) => {
   const [page, setPage] = useState(1);
   const { data, isLoading, error, isEmptyData } = useAnime<Anime>(
-    page,
-    searchFilter
+    searchFilter,
+    page
   );
   usePageScroll(
-    !isLoading && !isEmptyData,
+    !isLoading &&
+      !isEmptyData &&
+      pagiantionOnScroll &&
+      (searchFilter.maxPages ? searchFilter.maxPages > page : true),
     () => {
       setPage(page + 1);
     },
@@ -35,9 +40,14 @@ const AnimeGrid = ({ searchFilter }: Props) => {
         </AnimeCardContainer>
       ))}
       {isLoading &&
-        Array.from({ length: 9 }, (_, index) => (
-          <AnimeCardSkeleton key={index} />
-        ))}
+        Array.from(
+          { length: DefaultConfig.searchItemsLimitPerPage },
+          (_, index) => (
+            <AnimeCardContainer key={index}>
+              <AnimeCardSkeleton key={index} />
+            </AnimeCardContainer>
+          )
+        )}
     </SimpleGrid>
   );
 };

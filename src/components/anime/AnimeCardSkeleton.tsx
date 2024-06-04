@@ -1,12 +1,7 @@
-import { Skeleton, SkeletonText, Stack } from "@chakra-ui/react";
+import { Skeleton } from "@chakra-ui/react";
 
 const AnimeCardSkeleton = () => {
-  return (
-    <Stack>
-      <Skeleton height={{ base: "130px", md: "250px", lg: "290px" }}></Skeleton>
-      <SkeletonText noOfLines={1} />
-    </Stack>
-  );
+  return <Skeleton height={"100%"} w={"100%"} />;
 };
 
 export default AnimeCardSkeleton;

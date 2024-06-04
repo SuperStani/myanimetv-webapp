@@ -1,12 +1,12 @@
 import DefaultConfig from "../../../config/DefaultConfig";
 import { SearchFilter } from "../interfaces/SearchFilter";
-import useData from "./useData";
+import useDataMany from "../../API/AnimeServices/hooks/useDataMany";
 
-const useAnime = <T>(page: number = 1, searchFilter: SearchFilter) => {
+const useAnime = <T>(searchFilter: SearchFilter, page: number = 1, limit: number = DefaultConfig.searchItemsLimitPerPage) => {
     let p: any = {
         params: {
             page: page,
-            limit: DefaultConfig.searchItemsLimitPerPage,
+            limit: limit,
             lang: searchFilter?.lang
         }
     };
@@ -18,12 +18,25 @@ const useAnime = <T>(page: number = 1, searchFilter: SearchFilter) => {
         endpoint = "/users/profile/" + searchFilter.profile.userId;
         if (searchFilter.profile?.recap) {
             endpoint += "/unwatchedEpisodes/" + searchFilter.profile.recap;
-        }
-        if (searchFilter.profile?.history === true) {
+        } else if (searchFilter.profile?.history === true) {
             endpoint += "/anime/history";
         }
+        else if (searchFilter.profile?.preferreds === true) {
+            endpoint += "/anime/preferreds";
+        }
+        else if (searchFilter.profile?.recentViewed === true) {
+            endpoint += "/anime/lastWatched";
+        }
+        else if (searchFilter.profile?.watchlist) {
+            endpoint += "/anime/watchlist/" + searchFilter.profile?.watchlist;
+        }
+    } else if (searchFilter?.getWatchLists) {
+        endpoint = "/anime/watchlists";
     }
-    return useData<T>(endpoint, p, [page]);
+    else if (searchFilter?.ranking) {
+        endpoint = "/anime/ranking/" + searchFilter.ranking;
+    }
+    return useDataMany<T>(endpoint, p, [page]);
 };
 
 export default useAnime;

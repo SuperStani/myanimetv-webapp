@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
@@ -7,7 +7,12 @@ interface Props {
 
 const AnimeCardContainer = ({ children }: Props) => {
   return (
-    <Box position="relative" width={"100%"} height={"100%"} overflow={"hidden"}>
+    <Box
+      position="relative"
+      width={"100%"}
+      height={{ base: "150px", sm: "200px", md: "250px", lg: "260px" }}
+      overflow={"hidden"}
+    >
       {children}
     </Box>
   );
