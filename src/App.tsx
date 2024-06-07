@@ -1,5 +1,5 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SearchByNamePage from "./components/pages/searchs/SearchByNamePage";
 import RecapSeriesPage from "./components/pages/profile/RecapSeriesPage";
 import ProfileHome from "./components/pages/profile/ProfileHome";

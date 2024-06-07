@@ -5,4 +5,5 @@ export interface Anime {
     poster: string;
     average?: number;
     viewCount?: number;
+    preferredsCount?: number;
 }

@@ -5,7 +5,7 @@ import CardShadow from "../others/CardShadow";
 import { useInitData, useWebApp } from "@vkruglikov/react-telegram-web-app";
 import openAnime from "../../services/anime/utilities/OpenAnime";
 import { useState } from "react";
-import { EyeFill, StarFill } from "react-bootstrap-icons";
+import { EyeFill, HeartFill, StarFill } from "react-bootstrap-icons";
 import AnimePlayEffect from "./AnimePlayEffect";
 import AnimeCardBadgeTopRight from "./AnimeCardBadgeTopRight";
 
@@ -66,6 +66,13 @@ const AnimeCard = ({ anime }: Props) => {
         <AnimeCardBadgeTopRight
           text={anime.viewCount}
           icon={{ source: EyeFill, color: "white.400" }}
+        />
+      )}
+
+      {anime?.preferredsCount && (
+        <AnimeCardBadgeTopRight
+          text={anime.preferredsCount}
+          icon={{ source: HeartFill, color: "red.400" }}
         />
       )}
 

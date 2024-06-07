@@ -9,6 +9,7 @@ import {
 import useProfileTelegram from "../../services/telegram/hooks/useProfileTelegram";
 import CardShadow from "../others/CardShadow";
 import { useParams } from "react-router-dom";
+import ProfileWallpaper from "../../assets/anime/wallpapers/4037618.png";
 
 const ProfileHeader = () => {
   const { userId } = useParams();
@@ -22,7 +23,7 @@ const ProfileHeader = () => {
       overflow={"hidden"}
     >
       <Image
-        src="/src/assets/anime/wallpapers/4037618.png"
+        src={ProfileWallpaper}
         width="100%"
         height={"100%"}
         objectFit="cover"

@@ -50,19 +50,29 @@ const AppText: any = {
         fr: 'PRÉFÉRÉS',
     },
     watchTheNext: {
-        it: "GUARDA IL PROSSIMO"
+        it: "GUARDA IL PROSSIMO",
+        en: "WATCH THE NEXT",
+        fr: "REGARDER LE PROCHAIN"
     },
     notWatchedFromAWhile: {
-        it: "NON VEDI DA UN PO'"
+        it: "NON VEDI DA UN PO'",
+        en: "NOT WATCHED FROM A WHILE",
+        fr: "PAS REGARDÉ DEPUIS UN MOMENT"
     },
     mostVoted: {
-        it: "PIU VOTATI"
+        it: "PIU VOTATI",
+        en: "MOST VOTED",
+        fr: "LES PLUS VOTÉS"
     },
     mostViewed: {
-        it: "PIU VISTI"
+        it: "PIU VISTI",
+        en: "MOST VIEWED",
+        fr: "LES PLUS VUS"
     },
     mostLoved: {
-        it: "PIU AMATI"
+        it: "PIU AMATI",
+        en: "MOST LOVED",
+        fr: "LES PLUS AIMÉS"
     }
 }
 

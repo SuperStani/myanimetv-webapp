@@ -43,7 +43,12 @@ const WatchLists = () => {
                 </Tab>
               ))}
             {data.map((list) => (
-              <Tab key={list.id}>{list.name}</Tab>
+              <Tab
+                key={list.id}
+                fontSize={{ base: "12px", md: "15px", lg: "15px" }}
+              >
+                {list.name}
+              </Tab>
             ))}
           </TabList>
           <TabPanels>
