@@ -1,0 +1,20 @@
+.OngoinPreview {
+    position: relative;
+}
+
+
+.OngoinPreview .swiper-pagination-horizontal {
+    top: 0;
+    width: '10px';
+    bottom: auto;
+}
+
+.OngoinPreview .swiper-pagination-bullet {
+    margin: 0 4px;
+    opacity: 1;
+    background: white;
+}
+
+.OngoinPreview .swiper-pagination-bullet-active {
+    background: #007aff;
+}

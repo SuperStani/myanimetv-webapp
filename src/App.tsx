@@ -8,6 +8,7 @@ import { useWebApp } from "@vkruglikov/react-telegram-web-app";
 import WatchLists from "./components/pages/profile/WatchLists";
 import Preferreds from "./components/pages/profile/Preferreds";
 import TopAnime from "./components/pages/top/TopAnime";
+import HomePage from "./components/pages/HomePage";
 
 function App() {
   const WebApp = useWebApp();
@@ -15,6 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/:lang" element={<HomePage />} />
         <Route path="/:lang/search/:search" element={<SearchByNamePage />} />
         <Route
           path="/:lang/profile/:userId/recap-series"

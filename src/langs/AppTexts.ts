@@ -12,16 +12,16 @@ const AppText: any = {
     animetime: {
         it: 'Tempo anime',
         en: 'Anime time',
-        fr: 'Temps d\'anime',
+        fr: 'Anime time',
     },
     episodesWatched: {
         it: 'Episodi visti',
-        en: 'Episodes watched',
+        en: 'Episodes',
         fr: 'Épisodes vus',
     },
     animeWatched: {
         it: 'Anime visti',
-        en: 'Anime watched',
+        en: 'Anime',
         fr: 'Animes vus',
     },
     animeHistory: {
@@ -31,7 +31,7 @@ const AppText: any = {
     },
     filmWatched: {
         it: 'Film visti',
-        en: 'Films watched',
+        en: 'Movies',
         fr: 'Films vus',
     },
     comments: {
@@ -73,6 +73,31 @@ const AppText: any = {
         it: "PIU AMATI",
         en: "MOST LOVED",
         fr: "LES PLUS AIMÉS"
+    },
+    hours: {
+        it: 'ore',
+        en: 'hours',
+        fr: 'heures'
+    },
+    days: {
+        it: 'giorni',
+        en: 'days',
+        fr: 'jours'
+    },
+    months: {
+        it: 'mesi',
+        en: 'months',
+        fr: 'mois'
+    },
+    lastAnimeAired: {
+        it: 'ultimi anime usciti',
+        en: 'last aired anime',
+        fr: 'derniers animes diffusés'
+    },
+    lastAnimeEpisodes: {
+        it: 'ultimi episodi usciti',
+        en: 'last aired episodes',
+        fr: 'derniers épisodes diffusés'
     }
 }
 

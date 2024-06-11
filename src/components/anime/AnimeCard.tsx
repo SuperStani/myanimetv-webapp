@@ -7,7 +7,9 @@ import openAnime from "../../services/anime/utilities/OpenAnime";
 import { useState } from "react";
 import { EyeFill, HeartFill, StarFill } from "react-bootstrap-icons";
 import AnimePlayEffect from "./AnimePlayEffect";
-import AnimeCardBadgeTopRight from "./AnimeCardBadgeTopRight";
+import AnimeCardBadgeTopRight from "./badges/AnimeCardBadgeTopRight";
+import openEpisode from "../../services/anime/utilities/OpenEpisode";
+import AnimeCardBadgeTopLeft from "./badges/AnimeCardBadgeTopLeft";
 
 interface Props {
   anime: Anime;
@@ -20,16 +22,26 @@ const AnimeCard = ({ anime }: Props) => {
   const [clicked, setClicked] = useState(false);
 
   if (clicked) {
-    openAnime(
-      anime.id,
-      () => WebApp.close(),
-      initDataUnsafe?.user?.id,
-      initData
-    );
+    if (anime?.episodeNumber) {
+      openEpisode(
+        anime.id,
+        anime.episodeNumber,
+        () => WebApp.close(),
+        initDataUnsafe?.user?.id,
+        initData
+      );
+    } else {
+      openAnime(
+        anime.id,
+        () => WebApp.close(),
+        initDataUnsafe?.user?.id,
+        initData
+      );
+    }
   }
 
   return (
-    <Box onClick={() => setClicked(true)}>
+    <Box onClick={() => setClicked(true)} width={"100%"} height={"100%"}>
       <Image
         src={DefaultConfig.cloudPath + anime.poster}
         width="100%"
@@ -42,7 +54,7 @@ const AnimeCard = ({ anime }: Props) => {
         position="absolute"
         bottom="0"
         left="0"
-        padding={{ base: 1, md: 2, lg: 2 }}
+        padding={{ base: 2, md: 2, lg: 2 }}
       >
         <Text
           fontFamily={"Raleway"}
@@ -73,6 +85,17 @@ const AnimeCard = ({ anime }: Props) => {
         <AnimeCardBadgeTopRight
           text={anime.preferredsCount}
           icon={{ source: HeartFill, color: "red.400" }}
+        />
+      )}
+
+      {anime?.episodeNumber && (
+        <AnimeCardBadgeTopRight text={"EP" + anime.episodeNumber} />
+      )}
+
+      {anime?.category && anime.category !== "Anime" && (
+        <AnimeCardBadgeTopLeft
+          text={anime.category.toUpperCase()}
+          color={"red.500"}
         />
       )}
 
