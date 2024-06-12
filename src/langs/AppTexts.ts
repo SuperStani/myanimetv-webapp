@@ -1,4 +1,9 @@
 const AppText: any = {
+    loading: {
+        it: "Caricamento...",
+        en: "Loading...",
+        fr: "Chargement..."
+    },
     searchByName: {
         it: 'RISULTATI PER "{keyword}"',
         en: 'RESULTS FOR "{keyword}"',
@@ -13,6 +18,11 @@ const AppText: any = {
         it: 'Tempo anime',
         en: 'Anime time',
         fr: 'Temps d\'anime',
+    },
+    episode: {
+        it: "Episodio",
+        en: "Episode",
+        fr: "Épisode"
     },
     episodesWatched: {
         it: 'Episodi visti',
@@ -35,9 +45,9 @@ const AppText: any = {
         fr: 'Films vus',
     },
     comments: {
-        it: 'Commenti',
+        it: "Commenti",
         en: 'Comments',
-        fr: 'Commentaires',
+        fr: "Commentaires",
     },
     watchlist: {
         it: 'LISTA ANIME',

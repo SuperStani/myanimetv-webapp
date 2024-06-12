@@ -3,11 +3,12 @@ import { SearchFilter } from "../interfaces/SearchFilter";
 import useDataMany from "../../API/AnimeServices/hooks/useDataMany";
 
 const useAnime = <T>(searchFilter: SearchFilter, page: number = 1, limit: number = DefaultConfig.searchItemsLimitPerPage) => {
-    let p: any = {
+    const p = {
         params: {
             page: page,
             limit: limit,
-            lang: searchFilter?.lang
+            lang: searchFilter?.lang,
+            keyword: ''
         }
     };
     let endpoint = '/anime/name/all';
