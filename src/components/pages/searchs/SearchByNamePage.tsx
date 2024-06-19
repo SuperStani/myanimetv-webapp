@@ -7,12 +7,16 @@ import getText from "../../../services/lang/GetText";
 
 const SearchByNamePage = () => {
   const { lang, search } = useParams();
-  const filter = { name: search, lang } as SearchFilter;
+  const decodedSearch = decodeURIComponent(search ?? "");
+  const filter = { name: decodedSearch, lang } as SearchFilter;
   return (
     <SearchPageTemplate>
       <PageSectionContainer
         headerTitle={{
-          text: getText("searchByName", lang).replace("{keyword}", search),
+          text: getText("searchByName", lang).replace(
+            "{keyword}",
+            decodedSearch
+          ),
         }}
       >
         <AnimeGrid searchFilter={filter} />

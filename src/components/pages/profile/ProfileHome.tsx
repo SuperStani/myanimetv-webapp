@@ -5,7 +5,7 @@ import ProfileStats from "../../profile/statistics/Basic/ProfileStats";
 import ProfileHomePageTemplate from "../../templates/Profile/ProfileHomePageTemplate";
 import { SearchFilter } from "../../../services/anime/interfaces/SearchFilter";
 import { useParams } from "react-router-dom";
-import AnimeSlidesPreview from "../../profile/previews/AnimeSlidesPreview";
+import AnimeSlidesPreview from "../../anime/slides/AnimeSlidesPreview";
 import {
   BarChartLineFill,
   BookmarksFill,

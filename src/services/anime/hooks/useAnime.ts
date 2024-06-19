@@ -2,41 +2,56 @@ import DefaultConfig from "../../../config/DefaultConfig";
 import { SearchFilter } from "../interfaces/SearchFilter";
 import useDataMany from "../../API/AnimeServices/hooks/useDataMany";
 
-const useAnime = <T>(searchFilter: SearchFilter, page: number = 1, limit: number = DefaultConfig.searchItemsLimitPerPage) => {
-    let p: any = {
-        params: {
-            page: page,
-            limit: limit,
-            lang: searchFilter?.lang
-        }
+const useAnime = <T>({
+    name,
+
+    ongoing,
+    lastAired,
+    lastUpdated,
+    getWatchLists,
+    ranking,
+    lang,
+    profile
+}: SearchFilter, page: number = 1, limit: number = DefaultConfig.searchItemsLimitPerPage) => {
+
+    const params: Record<string, any> = {
+        page,
+        limit,
+        lang,
     };
+
     let endpoint = '/anime/name/all';
-    if (searchFilter?.name) {
+
+    if (name) {
         endpoint = "/anime/name";
-        p.params['keyword'] = searchFilter.name;
-    } else if (searchFilter?.profile) {
-        endpoint = "/users/profile/" + searchFilter.profile.userId;
-        if (searchFilter.profile?.recap) {
-            endpoint += "/unwatchedEpisodes/" + searchFilter.profile.recap;
-        } else if (searchFilter.profile?.history === true) {
+        params['keyword'] = name;
+    } else if (profile) {
+        endpoint = `/users/profile/${profile.userId}`;
+        if (profile.recap) {
+            endpoint += `/unwatchedEpisodes/${profile.recap}`;
+        } else if (profile.history) {
             endpoint += "/anime/history";
-        }
-        else if (searchFilter.profile?.preferreds === true) {
+        } else if (profile.preferreds) {
             endpoint += "/anime/preferreds";
-        }
-        else if (searchFilter.profile?.recentViewed === true) {
+        } else if (profile.recentViewed) {
             endpoint += "/anime/lastWatched";
+        } else if (profile.watchlist) {
+            endpoint += `/anime/watchlist/${profile.watchlist}`;
         }
-        else if (searchFilter.profile?.watchlist) {
-            endpoint += "/anime/watchlist/" + searchFilter.profile?.watchlist;
-        }
-    } else if (searchFilter?.getWatchLists) {
+    } else if (getWatchLists) {
         endpoint = "/anime/watchlists";
+    } else if (ranking) {
+        endpoint = `/anime/ranking/${ranking}`;
+    } else if (ongoing) {
+        endpoint = `anime/ongoing/${ongoing}`;
+    } else if (lastAired) {
+        endpoint = `anime/lasts/uploaded`;
     }
-    else if (searchFilter?.ranking) {
-        endpoint = "/anime/ranking/" + searchFilter.ranking;
+    else if (lastUpdated) {
+        endpoint = `anime/lasts/updated`;
     }
-    return useDataMany<T>(endpoint, p, [page]);
+
+    return useDataMany<T>(endpoint, { params }, [page]);
 };
 
 export default useAnime;

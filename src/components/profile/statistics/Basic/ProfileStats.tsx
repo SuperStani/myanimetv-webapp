@@ -25,7 +25,6 @@ const ProfileStats = () => {
         slidesPerView={"auto"}
         spaceBetween={10}
         freeMode={true}
-        navigation
         modules={[FreeMode, Pagination]}
         className="mySwiper"
       >

@@ -5,18 +5,17 @@ interface Props {
   children: ReactNode;
 }
 
-const AnimeCardContainerSlide = ({ children }: Props) => {
+const AnimeOngoingSlideCardContainer = ({ children }: Props) => {
   return (
     <Box
       position="relative"
       width={"100%"}
-      height={{ base: "155px", sm: "200px", md: "250px", lg: "400px" }}
+      height={{ base: "150px", sm: "200px", md: "250px", lg: "260px" }}
       overflow={"hidden"}
-      borderRadius={5}
     >
       {children}
     </Box>
   );
 };
 
-export default AnimeCardContainerSlide;
+export default AnimeOngoingSlideCardContainer;

@@ -1,11 +1,14 @@
 export interface SearchFilter {
     name?: string | null;
-    genres?: string[];
+    genres?: string[] | null;
+    lastAired?: boolean;
+    lastUpdated?: boolean
+    ongoing?: 'all' | 'bests' | null;
     getWatchLists?: boolean;
     ranking?: 'rating' | 'views' | 'preferreds' | null;
     lang?: string;
     profile?: ProfileFilter,
-    maxPages?: number;
+    maxPages?: number | null;
 }
 
 

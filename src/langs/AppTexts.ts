@@ -12,16 +12,16 @@ const AppText: any = {
     animetime: {
         it: 'Tempo anime',
         en: 'Anime time',
-        fr: 'Temps d\'anime',
+        fr: 'Anime time',
     },
     episodesWatched: {
         it: 'Episodi visti',
-        en: 'Episodes watched',
+        en: 'Episodes',
         fr: 'Épisodes vus',
     },
     animeWatched: {
         it: 'Anime visti',
-        en: 'Anime watched',
+        en: 'Anime',
         fr: 'Animes vus',
     },
     animeHistory: {
@@ -31,7 +31,7 @@ const AppText: any = {
     },
     filmWatched: {
         it: 'Film visti',
-        en: 'Films watched',
+        en: 'Movies',
         fr: 'Films vus',
     },
     comments: {
@@ -73,6 +73,61 @@ const AppText: any = {
         it: "PIU AMATI",
         en: "MOST LOVED",
         fr: "LES PLUS AIMÉS"
+    },
+    hours: {
+        it: 'ore',
+        en: 'hours',
+        fr: 'heures'
+    },
+    days: {
+        it: 'giorni',
+        en: 'days',
+        fr: 'jours'
+    },
+    months: {
+        it: 'mesi',
+        en: 'months',
+        fr: 'mois'
+    },
+    lastAnimeAired: {
+        it: 'ultimi anime usciti',
+        en: 'last aired anime',
+        fr: 'derniers animes diffusés'
+    },
+    lastAnimeEpisodes: {
+        it: 'ultimi episodi usciti',
+        en: 'last aired episodes',
+        fr: 'derniers épisodes diffusés'
+    },
+    areYouSure: {
+        it: "Sei sicuro?",
+        en: "Are you sure?",
+        fr: "Êtes-vous sûr ?"
+    },
+    yesDelete: {
+        it: "Si, elimina!",
+        en: "Yes, delete it!",
+        fr: "Oui, supprimez-le !"
+    },
+    cancel: {
+        it: "Annulla",
+        en: "Cancel",
+        fr: "Annuler"
+    },
+    deleted: {
+        it: "Eliminato",
+        en: "Deleted",
+        fr: "Supprimé"
+    },
+    commentDeleted: {
+        it: "Il commento è stato eliminato!",
+        en: "Your comment has been deleted.",
+        fr: "Votre commentaire a été supprimé."
+    },
+    noCommentsFound: {
+        it: "Non ci sono commenti, approfitta per lasciarne uno per primo!",
+        en: "There are no comments yet, take the opportunity to leave the first one!",
+        fr: "Il n'y a pas encore de commentaires, profitez-en pour laisser le premier !"
     }
 }
 

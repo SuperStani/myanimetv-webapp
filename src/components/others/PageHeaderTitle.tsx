@@ -15,7 +15,6 @@ const PageHeaderTitle = ({
   redirectTo = null,
   stickyHeader = true,
 }: HeaderTitleProps) => {
-  console.log(icon);
   return (
     <Stack
       position={stickyHeader ? "sticky" : "relative"}
@@ -31,6 +30,7 @@ const PageHeaderTitle = ({
           casing={{ base: "uppercase" }}
           fontFamily={"Mochiy Pop One"}
           align={"left"}
+          fontSize={{ base: "13px", md: "20px", lg: "20px" }}
         >
           {text}
         </Text>

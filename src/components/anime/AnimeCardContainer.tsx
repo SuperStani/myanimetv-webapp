@@ -12,6 +12,7 @@ const AnimeCardContainer = ({ children }: Props) => {
       width={"100%"}
       height={{ base: "150px", sm: "200px", md: "250px", lg: "260px" }}
       overflow={"hidden"}
+      borderRadius={5}
     >
       {children}
     </Box>
