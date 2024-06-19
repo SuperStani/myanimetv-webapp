@@ -9,9 +9,12 @@ import WatchLists from "./components/pages/profile/WatchLists";
 import Preferreds from "./components/pages/profile/Preferreds";
 import TopAnime from "./components/pages/top/TopAnime";
 import HomePage from "./components/pages/HomePage";
+import AnimeEpisodeComments from "./components/pages/episodes/comments/AnimeEpisodeComments";
 
 function App() {
   const WebApp = useWebApp();
+  console.log(JSON.stringify(WebApp.initDataUnsafe));
+  console.log(JSON.stringify(WebApp.initData));
   WebApp.expand();
   return (
     <BrowserRouter>
@@ -39,6 +42,11 @@ function App() {
         />
 
         <Route path="/:lang/anime/top" element={<TopAnime />} />
+
+        <Route
+          path="/:lang/anime/:animeId/episodes/:episodeNumber/comments"
+          element={<AnimeEpisodeComments />}
+        />
       </Routes>
     </BrowserRouter>
   );
