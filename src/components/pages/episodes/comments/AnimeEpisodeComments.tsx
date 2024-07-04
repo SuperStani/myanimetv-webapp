@@ -27,9 +27,12 @@ function AnimeEpisodeComments() {
   const { lang, animeId, episodeNumber } = useParams();
   const [commentText, setCommentText] = useState("");
   const [isCommentSent, setCommentSent] = useState(0);
-  const { data: animeData, isLoading } = useData<Anime>("/anime/" + animeId, {
-    params: { lang: lang },
-  });
+  const { data: animeData, isLoading } = useData<Anime>(
+    "/anime/info/" + animeId,
+    {
+      params: { lang: lang },
+    }
+  );
   const { data: commentsData, isLoading: isLoadingComments } =
     useDataMany<EpisodeComment>(
       `/episodes/${animeId}/${episodeNumber}/comments`,
@@ -41,7 +44,7 @@ function AnimeEpisodeComments() {
     );
   const webAppData = useWebApp();
   const handleSendComment = () => {
-    if (animeId && episodeNumber && lang && commentText.length > 9) {
+    if (animeId && episodeNumber && lang && commentText.length > 5) {
       saveNewComment(
         webAppData.initDataUnsafe.user.id,
         parseInt(animeId),

@@ -16,7 +16,7 @@ import getText from "../../../../services/lang/GetText";
 
 const ProfileStats = () => {
   const { userId, lang } = useParams();
-  const { data, isLoading } = useBasicStats(userId);
+  const { data, isLoading } = useBasicStats(userId, lang);
   const time = getTimeDifference(data?.episodes.totalTime ?? 0);
 
   return (
