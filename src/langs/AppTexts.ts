@@ -4,6 +4,42 @@ const AppText: any = {
         en: 'RESULTS FOR "{keyword}"',
         fr: 'RÉSULTATS POUR "{keyword}"',
     },
+    searchByStudio: {
+        it: '{keyword}',
+        en: '{keyword}',
+        fr: '{keyword}',
+    },
+    searchByIndex: {
+        it: 'INDICE "{keyword}"',
+        en: 'INDEX "{keyword}"',
+        fr: 'INDICE "{keyword}"',
+    },
+    searchByCategory: {
+        it: 'CATEGORIA "{keyword}"',
+        en: 'CATEGORY "{keyword}"',
+        fr: 'Catégorie "{keyword}"',
+    },
+    searchByYear: {
+        it: 'ANIME USCITI NEL "{keyword}"',
+        en: 'ANIME RELEASED IN "{keyword}"',
+        fr: 'ANIMÉS SORTIS EN "{keyword}"',
+    },
+    searchByEpisodes: {
+        it: 'RISULTATI PER "{keyword}" episodi',
+        en: 'RESULTS FOR "{keyword}" episodes',
+        fr: 'RÉSULTATS POUR "{keyword}" Épisodes',
+    },
+
+    searchByRelatedAnime: {
+        it: 'ANIME CORRELATI',
+        en: 'RELATED ANIME',
+        fr: 'ANIMÉS CORRÉLÉS',
+    },
+    searchBySimilarAnime: {
+        it: 'ANIME SIMILI CHE POTREBBERO PIACERTI',
+        en: "Similar Anime You Might Like",
+        fr: "Animes Similaires Que Vous Pourriez Aimer",
+    },
     stats: {
         it: 'Statistiche',
         en: 'Statistics',

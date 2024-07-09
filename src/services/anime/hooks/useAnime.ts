@@ -4,14 +4,20 @@ import useDataMany from "../../API/AnimeServices/hooks/useDataMany";
 
 const useAnime = <T>({
     name,
-
     ongoing,
     lastAired,
     lastUpdated,
     getWatchLists,
     ranking,
     lang,
-    profile
+    profile,
+    index,
+    studio,
+    category,
+    year,
+    episodesRange,
+    related,
+    similar
 }: SearchFilter, page: number = 1, limit: number = DefaultConfig.searchItemsLimitPerPage) => {
 
     const params: Record<string, any> = {
@@ -49,6 +55,27 @@ const useAnime = <T>({
     }
     else if (lastUpdated) {
         endpoint = `anime/lasts/updated`;
+    } else if (index) {
+        endpoint = `anime/azlist/${index}`;
+    } else if (studio) {
+        endpoint = `anime/studio/${studio}`;
+    }
+    else if (category) {
+        endpoint = `anime/category/${category}`;
+    }
+    else if (year) {
+        endpoint = `anime/year/${year}`;
+    }
+    else if (episodesRange) {
+        endpoint = `anime/filter/episodes`;
+        params['min'] = episodesRange.min;
+        params['max'] = episodesRange.max;
+    }
+    else if (related) {
+        endpoint = `anime/related/${related}`;
+    }
+    else if (similar) {
+        endpoint = `anime/similar/${similar}`;
     }
 
     return useDataMany<T>(endpoint, { params }, [page]);

@@ -1,5 +1,12 @@
 export interface SearchFilter {
     name?: string | null;
+    index?: string | null;
+    studio?: string | null;
+    category?: string | null;
+    year?: string | null;
+    episodesRange?: { min?: number | null, max?: number | null } | null;
+    related?: number | null;
+    similar?: number | null;
     genres?: string[] | null;
     lastAired?: boolean;
     lastUpdated?: boolean
