@@ -19,7 +19,7 @@ const RecapSeriesPage = () => {
   } as SearchFilter;
   return (
     <ProfilePageTemplate active={1}>
-      <Stack spacing={2}>
+      <Stack>
         <PageSectionContainer
           headerTitle={{ text: getText("watchTheNext", lang) }}
         >

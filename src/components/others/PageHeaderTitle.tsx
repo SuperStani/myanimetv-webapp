@@ -6,6 +6,7 @@ export interface HeaderTitleProps {
   text: string;
   icon?: any | null;
   redirectTo?: string | null;
+  iconRedirectTo?: any | null;
   stickyHeader?: boolean;
 }
 
@@ -14,13 +15,13 @@ const PageHeaderTitle = ({
   icon = null,
   redirectTo = null,
   stickyHeader = true,
+  iconRedirectTo = null,
 }: HeaderTitleProps) => {
-
   return (
     <Stack
       position={stickyHeader ? "sticky" : "relative"}
-      top="0"
-      zIndex="1"
+      top={-0.5}
+      zIndex="99999"
       spacing={2}
       bg={"gray.800"}
       paddingTop={2}
@@ -38,7 +39,7 @@ const PageHeaderTitle = ({
         <Spacer />
         {redirectTo && (
           <Link to={redirectTo}>
-            <Icon boxSize={4} as={MdArrowForwardIos} />
+            <Icon boxSize={4} as={iconRedirectTo ?? MdArrowForwardIos} />
           </Link>
         )}
       </HStack>

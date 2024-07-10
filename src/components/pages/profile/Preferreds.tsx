@@ -3,7 +3,7 @@ import { SearchFilter } from "../../../services/anime/interfaces/SearchFilter";
 import AnimeGrid from "../../anime/AnimeGrid";
 import PageSectionContainer from "../../others/PageSectionContainer";
 import ProfileHomePageTemplate from "../../templates/Profile/ProfileHomePageTemplate";
-import { HeartFill } from "react-bootstrap-icons";
+import { BoxArrowLeft, HeartFill } from "react-bootstrap-icons";
 import getText from "../../../services/lang/GetText";
 
 const Preferreds = () => {
@@ -16,6 +16,8 @@ const Preferreds = () => {
           stickyHeader: true,
           text: getText("preferreds", lang),
           icon: HeartFill,
+          redirectTo: "/" + lang + "/profile/" + userId,
+          iconRedirectTo: BoxArrowLeft,
         }}
       >
         <AnimeGrid

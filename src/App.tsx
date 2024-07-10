@@ -17,7 +17,7 @@ import SearchByYearPage from "./components/pages/searchs/SearchByYearPage";
 import SearchByEpisodesPage from "./components/pages/searchs/SearchByEpisodesRangePage";
 import SearchByRelatedAnimePage from "./components/pages/searchs/SearchRelatedAnimePage";
 import SearchSimilarAnimePage from "./components/pages/searchs/SearchSimilarAnimePage";
-import Calendar from "./components/pages/calendar/Calendar";
+import CalendarPage from "./components/pages/calendar/Calendar";
 
 function App() {
   const WebApp = useWebApp();
@@ -79,7 +79,12 @@ function App() {
 
         <Route path="/:lang/anime/top" element={<TopAnime />} />
 
+        <Route
+          path="/:lang/anime/:animeId/episodes/:episodeNumber/comments"
+          element={<AnimeEpisodeComments />}
+        />
 
+        <Route path="/:lang/anime/airing" element={<CalendarPage />} />
       </Routes>
     </BrowserRouter>
   );

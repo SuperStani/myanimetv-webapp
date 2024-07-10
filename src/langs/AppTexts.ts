@@ -60,17 +60,6 @@ const AppText: any = {
         en: "Anime watched",
         fr: "Animes vus",
     },
-    episodesWatched: {
-        it: 'Episodi visti',
-        en: 'Episodes',
-        fr: 'Épisodes vus',
-    },
-    animeWatched: {
-        it: 'Anime visti',
-        en: 'Anime',
-        fr: 'Animes vus',
-
-    },
     animeHistory: {
         it: "Cronologia anime",
         en: "Anime history",

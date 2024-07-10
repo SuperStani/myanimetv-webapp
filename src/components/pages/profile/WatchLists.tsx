@@ -15,7 +15,7 @@ import AnimeGrid from "../../anime/AnimeGrid";
 import { SearchFilter } from "../../../services/anime/interfaces/SearchFilter";
 import WatchList from "../../../services/anime/interfaces/WatchList";
 import useAnime from "../../../services/anime/hooks/useAnime";
-import { BookmarksFill } from "react-bootstrap-icons";
+import { BookmarksFill, BoxArrowLeft } from "react-bootstrap-icons";
 
 const WatchLists = () => {
   const { userId, lang } = useParams();
@@ -30,6 +30,8 @@ const WatchLists = () => {
           stickyHeader: true,
           text: "WATCHLIST",
           icon: BookmarksFill,
+          redirectTo: "/" + lang + "/profile/" + userId,
+          iconRedirectTo: BoxArrowLeft,
         }}
       >
         <Tabs isFitted onChange={(index) => setIndex(index)}>
