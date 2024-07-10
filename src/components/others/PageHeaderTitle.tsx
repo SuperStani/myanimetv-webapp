@@ -15,6 +15,7 @@ const PageHeaderTitle = ({
   redirectTo = null,
   stickyHeader = true,
 }: HeaderTitleProps) => {
+
   return (
     <Stack
       position={stickyHeader ? "sticky" : "relative"}
