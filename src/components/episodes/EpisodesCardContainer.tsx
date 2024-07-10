@@ -7,7 +7,8 @@ interface Props {
 
 const EpisodesCardContainer = ({ children }: Props) => {
   return (
-    <Box h={{ base: "70px", sm: "90px", md: "200px", lg: "250px" }}>
+    <Box h={{ base: "70px", sm: "100px", md: "200px", lg: "250px" }}
+    >
       <HStack
         overflow="hidden"
         bg="gray.900"

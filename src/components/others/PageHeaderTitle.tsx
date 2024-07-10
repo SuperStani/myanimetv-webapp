@@ -15,7 +15,7 @@ const PageHeaderTitle = ({
   redirectTo = null,
   stickyHeader = true,
 }: HeaderTitleProps) => {
-  console.log(icon);
+
   return (
     <Stack
       position={stickyHeader ? "sticky" : "relative"}

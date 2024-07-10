@@ -8,6 +8,7 @@ import { useWebApp } from "@vkruglikov/react-telegram-web-app";
 import WatchLists from "./components/pages/profile/WatchLists";
 import Preferreds from "./components/pages/profile/Preferreds";
 import TopAnime from "./components/pages/top/TopAnime";
+import Calendar from "./components/pages/calendar/Calendar";
 
 function App() {
   const WebApp = useWebApp();
@@ -37,6 +38,8 @@ function App() {
         />
 
         <Route path="/:lang/anime/top" element={<TopAnime />} />
+
+        <Route path="/:lang/ongoing/calendar" element={<Calendar />} />
       </Routes>
     </BrowserRouter>
   );
