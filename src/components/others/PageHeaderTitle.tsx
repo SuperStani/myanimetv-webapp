@@ -31,6 +31,7 @@ const PageHeaderTitle = ({
           casing={{ base: "uppercase" }}
           fontFamily={"Mochiy Pop One"}
           align={"left"}
+          fontSize={{ base: "13px", md: "20px", lg: "20px" }}
         >
           {text}
         </Text>

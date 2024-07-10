@@ -5,17 +5,17 @@ import AnimeGrid from "../../anime/AnimeGrid";
 import PageSectionContainer from "../../others/PageSectionContainer";
 import getText from "../../../services/lang/GetText";
 
-const SearchByNamePage = () => {
-  const { lang, search } = useParams();
-  const decodedSearch = decodeURIComponent(search ?? "");
-  const filter = { name: decodedSearch, lang } as SearchFilter;
+const SearchByStudioPage = () => {
+  const { lang, studio, studioName } = useParams();
+  const filter = { studio, lang } as SearchFilter;
+
   return (
     <SearchPageTemplate>
       <PageSectionContainer
         headerTitle={{
-          text: getText("searchByName", lang).replace(
+          text: getText("searchByStudio", lang).replace(
             "{keyword}",
-            decodedSearch
+            studioName
           ),
         }}
       >
@@ -25,4 +25,4 @@ const SearchByNamePage = () => {
   );
 };
 
-export default SearchByNamePage;
+export default SearchByStudioPage;

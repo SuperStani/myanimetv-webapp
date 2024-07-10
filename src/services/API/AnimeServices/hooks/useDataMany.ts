@@ -5,7 +5,7 @@ export const Sleep = (milliseconds: any) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
-const useDataMany = <T>(endpoint: string, axiosConfig?: AxiosRequestConfig, deps?: any[]) => {
+const useDataMany = <T>(endpoint: string, axiosConfig?: AxiosRequestConfig, deps?: any[], appendData: boolean = true) => {
     const [data, setData] = useState<T[]>([]);
     const [error, setError] = useState('');
     const [isLoading, setLoading] = useState(true);
@@ -19,7 +19,12 @@ const useDataMany = <T>(endpoint: string, axiosConfig?: AxiosRequestConfig, deps
             if (res.data.length === 0) {
                 setIsEmptyData(true);
             } else {
-                setData([...data, ...res.data]);
+                if (appendData) {
+                    setData([...data, ...res.data]);
+                } else {
+                    setData([...res.data]);
+                }
+
             }
 
             setLoading(false)

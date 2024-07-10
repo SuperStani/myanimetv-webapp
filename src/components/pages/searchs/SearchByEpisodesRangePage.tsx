@@ -5,17 +5,20 @@ import AnimeGrid from "../../anime/AnimeGrid";
 import PageSectionContainer from "../../others/PageSectionContainer";
 import getText from "../../../services/lang/GetText";
 
-const SearchByNamePage = () => {
-  const { lang, search } = useParams();
-  const decodedSearch = decodeURIComponent(search ?? "");
-  const filter = { name: decodedSearch, lang } as SearchFilter;
+const SearchByEpisodesPage = () => {
+  const { lang, epMin, epMax } = useParams();
+  const filter = {
+    episodesRange: { min: epMin, max: epMax },
+    lang,
+  } as SearchFilter;
+
   return (
     <SearchPageTemplate>
       <PageSectionContainer
         headerTitle={{
-          text: getText("searchByName", lang).replace(
+          text: getText("searchByEpisodes", lang).replace(
             "{keyword}",
-            decodedSearch
+            `${epMin}-${epMax}`
           ),
         }}
       >
@@ -25,4 +28,4 @@ const SearchByNamePage = () => {
   );
 };
 
-export default SearchByNamePage;
+export default SearchByEpisodesPage;

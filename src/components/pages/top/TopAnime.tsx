@@ -23,7 +23,7 @@ const TopAnime = () => {
     <SearchPageTemplate>
       <PageSectionContainer headerTitle={{ text: "TOP ANIME" }}>
         <Tabs isFitted onChange={(index) => setIndex(index)}>
-          <TabList mb="1em">
+          <TabList mb="1em" fontFamily={"Poppins, sans-serif"}>
             <Tab>
               <HStack
                 spacing={1}
