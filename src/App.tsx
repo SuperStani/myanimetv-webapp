@@ -18,6 +18,7 @@ import SearchByEpisodesPage from "./components/pages/searchs/SearchByEpisodesRan
 import SearchByRelatedAnimePage from "./components/pages/searchs/SearchRelatedAnimePage";
 import SearchSimilarAnimePage from "./components/pages/searchs/SearchSimilarAnimePage";
 import CalendarPage from "./components/pages/calendar/Calendar";
+import StatisticsPage from "./components/pages/statistics/StatisticsPage";
 
 function App() {
   const WebApp = useWebApp();
@@ -85,6 +86,8 @@ function App() {
         />
 
         <Route path="/:lang/anime/airing" element={<CalendarPage />} />
+
+        <Route path="/admin/stats" element={<StatisticsPage />} />
       </Routes>
     </BrowserRouter>
   );

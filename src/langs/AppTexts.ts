@@ -156,8 +156,8 @@ const AppText: any = {
     },
     calendarEpisode: {
         it: { out: "uscito alle", notOut: "uscirà alle" },
-        en: { out: "was released at", notOut: "will be out at" },
-        fr: { out: "a été publié à", notOut: "sera disponibile à l'adresse" }
+        en: { out: "aired at", notOut: "airing at" },
+        fr: { out: "libéré à", notOut: "sortira à 12h" }
     },
     hours: {
         it: 'ore',

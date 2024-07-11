@@ -17,6 +17,7 @@ const ProfileStatsCard = ({ title, icon, children }: Props) => {
             textAlign={"center"}
             fontSize={{ base: "13px", lg: "18px" }}
             fontWeight={"bold"}
+            fontFamily={"Roboto, sans-serif"}
           >
             {title}
           </Text>

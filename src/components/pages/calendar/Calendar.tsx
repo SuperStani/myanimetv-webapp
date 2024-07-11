@@ -8,6 +8,7 @@ import EpisodesCardContainer from "../../episodes/EpisodesCardContainer";
 import EpisodesCalendarCard from "../../episodes/EpisodesCalendarCard";
 import CalendarEpisode from "../../../services/anime/interfaces/CalendarEpisode";
 import EpisodeCardSkeleton from "../../episodes/EpisodesSkeleton";
+import { CalendarWeek } from "react-bootstrap-icons";
 
 export default function CalendarPage() {
   const { lang } = useParams();
@@ -42,6 +43,7 @@ export default function CalendarPage() {
       <PageSectionContainer
         headerTitle={{
           text: `${getText("calendar", lang)} ${localizedWeeklyCalendar}`,
+          icon: CalendarWeek,
         }}
       >
         <Stack spacing={3} width={"100%"} mb={10}>
